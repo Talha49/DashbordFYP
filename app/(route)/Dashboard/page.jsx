@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoSearchOutline } from "react-icons/io5";
 import CircularChartComp from '@/app/components/CircularChartComp';
 import LineChartComp from '@/app/components/LineChart';
@@ -25,7 +25,8 @@ const Card = ({ title, children, className }) => (
 const Dashboard = () => {
 
  const [selectedDate, setSelectedDate] = useState(new Date());
- const handleDateChange = (date) => {
+ 
+const handleDateChange = (date) => {
   console.log("Date changed:", date);
   setSelectedDate(date);
 };
@@ -44,22 +45,22 @@ const Dashboard = () => {
 
       <div className="flex flex-col space-y-4">
         {/* First row */}
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-          <div className="w-full  h-full">
-            <Card title="LineChartComp" className="h-full">
-              <LineChartComp  selectedDate={selectedDate}/>
-            </Card>
-          </div>
-          <div >
-            <CalendarComp value={selectedDate} onChange={handleDateChange}/>
-          </div>
-          <div className="w-full   h-full">
-            <Card title="Dual Lines" className="h-full">
-              <DualLines />
-            </Card>
-          </div>
-          
-        </div>
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+  <div className="w-full h-full">
+    <Card title="LineChartComp" className="h-full">
+      <LineChartComp selectedDate={selectedDate} />
+    </Card>
+  </div>
+  <div className="w-full h-full flex items-center justify-center">
+    <CalendarComp value={selectedDate} onChange={handleDateChange} />
+  </div>
+  <div className="w-full h-full">
+    <Card title="Dual Lines" className="h-full">
+      <DualLines selectedDate={selectedDate} />
+    </Card>
+  </div>
+</div>
+
 
         {/* Second row */}
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 ">

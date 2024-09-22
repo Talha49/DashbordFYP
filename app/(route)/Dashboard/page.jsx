@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import { IoSearchOutline } from "react-icons/io5";
 import CircularChartComp from '@/app/components/CircularChartComp';
 import LineChartComp from '@/app/components/LineChart';
@@ -10,6 +10,8 @@ import BarChartComp from '@/app/components/BarChart';
 import BarGraphtwo from '@/app/components/BarGraphtwo';
 import ProgressChart from '@/app/components/ProgressGraph';
 import DualAreaChart from '@/app/components/AreaChart';
+import CalendarComp from '@/app/components/Calendar';
+
 
 const Card = ({ title, children, className }) => (
   <div className={`bg-white rounded-lg shadow-md overflow-hidden ${className}`}>
@@ -18,29 +20,15 @@ const Card = ({ title, children, className }) => (
   </div>
 );  
 
-const Calendar = () => (
-  <div className="bg-white rounded-lg shadow-md p-3 h-full">
-    <div className="flex justify-between items-center mb-2">
-      <span className="text-sm font-semibold">January 2024</span>
-      <div className="space-x-1">
-        <button className="text-xs">&lt;</button>
-        <button className="text-xs">&gt;</button>
-      </div>
-    </div>
-    <div className="grid grid-cols-7 gap-1 text-xs">
-      {["S", "M", "T", "W", "T", "F", "S"].map(day => (
-        <div key={day} className="text-center font-medium text-gray-500">{day}</div>
-      ))}
-      {Array.from({ length: 31 }, (_, i) => (
-        <div key={i} className={`text-center p-1 ${i + 1 === 14 ? 'bg-blue-500 text-white rounded-full' : ''}`}>
-          {i + 1}
-        </div>
-      ))}
-    </div>
-  </div>
-);
+
 
 const Dashboard = () => {
+
+ const [selectedDate, setSelectedDate] = useState(new Date());
+ const handleDateChange = (date) => {
+  console.log("Date changed:", date);
+  setSelectedDate(date);
+};
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
       <div className="flex justify-between items-center mb-4">
@@ -58,11 +46,11 @@ const Dashboard = () => {
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
           <div className="w-full  h-full">
             <Card title="LineChartComp" className="h-full">
-              <LineChartComp />
+              <LineChartComp  selectedDate={selectedDate}/>
             </Card>
           </div>
-          <div className="w-full  h-full">
-            <Calendar />
+          <div >
+            <CalendarComp value={selectedDate} onChange={handleDateChange}/>
           </div>
           <div className="w-full   h-full">
             <Card title="Dual Lines" className="h-full">

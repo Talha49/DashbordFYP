@@ -7,7 +7,7 @@ const LineChartComp = ({selectedDate}) => {
 
  const allData  = [
 
-  { date: "2022-01-01", sales: 4000, revenue: 2400, customers: 120, type: "Retail" },
+      { date: "2022-01-01", sales: 4000, revenue: 2400, customers: 120, type: "Retail" },
       { date: "2022-01-01", sales: 3500, revenue: 6100, customers: 1290, type: "offline" },
       { date: "2022-01-01", sales: 3400, revenue: 8100, customers: 890, type: "Online" },
       { date: "2022-01-01", sales: 3700, revenue: 6100, customers: 670, type: "Online" },

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoSearchOutline } from "react-icons/io5";
 import CircularChartComp from '@/app/components/CircularChartComp';
 import LineChartComp from '@/app/components/LineChart';
@@ -25,7 +25,8 @@ const Card = ({ title, children, className }) => (
 const Dashboard = () => {
 
  const [selectedDate, setSelectedDate] = useState(new Date());
- const handleDateChange = (date) => {
+ 
+const handleDateChange = (date) => {
   console.log("Date changed:", date);
   setSelectedDate(date);
 };
@@ -46,7 +47,7 @@ const Dashboard = () => {
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
           <div className="w-full  h-full">
             <Card title="LineChartComp" className="h-full">
-              <LineChartComp  selectedDate={selectedDate}/>
+              <LineChartComp   selectedDate={selectedDate}/>
             </Card>
           </div>
           <div >

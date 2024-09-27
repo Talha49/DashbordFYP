@@ -27,7 +27,7 @@ const ProgressChart = ({ initialPercentage = 75 }) => {
           <p className="text-gray-600">Lorem ipsum dolor sit amet</p>
         </div>
         <div className="relative">
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
                 data={data}

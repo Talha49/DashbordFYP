@@ -111,7 +111,7 @@ const Dashboard = () => {
 
         {/* Second row */}
         <div className="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
-          <Card  className="h-[520px]">
+          <Card  className="h-[540px]">
             <LineCharttwo selectedDate={selectedDate} />
           </Card>
           
@@ -119,8 +119,8 @@ const Dashboard = () => {
             <Card title="Circular Chart Comp" >
               <CircularChartComp />
             </Card>
-            <Card title="Dual Lines" >
-              <DualAreaChart />
+            <Card >
+              <DualAreaChart selectedDate={selectedDate} />
             </Card>
           </div>
         </div>
@@ -128,10 +128,10 @@ const Dashboard = () => {
         {/* Third row */}
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
           <Card title="BarChartComp" className="h-full">
-            <BarChartComp />
+            <BarChartComp selectedDate={selectedDate} />
           </Card>
           <Card title="BarGraphtwo" className="h-full">
-            <BarGraphtwo />
+            <BarGraphtwo  selectedDate={selectedDate}/>
           </Card>
         </div>
       </div>

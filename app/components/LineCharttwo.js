@@ -577,7 +577,7 @@ const toggleDownloadMenu = () => {
             type="category"
           />
           <CartesianGrid strokeDasharray="3 3" />
-          <YAxis  dataKey="tasksCompleted" />
+          <YAxis   />
           <Tooltip content={customTooltip} />
           <Line 
             type="monotone" 
@@ -586,6 +586,7 @@ const toggleDownloadMenu = () => {
             strokeWidth={3}
             dot={<CustomDot />}
             activeDot={{ r: 8 }}
+            
           />
         </LineChart>
       </ResponsiveContainer>
